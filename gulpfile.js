@@ -154,7 +154,7 @@ gulp.task('styles-libs', function() {
 // precompile the templates
 gulp.task('tmpl', function(){
   return gulp.src('js/templates/**/*.html')
-    .pipe(template({namespace: 'training_templates'}))
+    .pipe(template({namespace: 'feedback_templates'}))
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('js/templates'));
 });
