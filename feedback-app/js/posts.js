@@ -16,9 +16,15 @@ Feedback.module('Posts', function(Posts, App, Backbone, Marionette, $, _){
 		home: function(){
 			console.log("POSTS CTRL: home route");
 			var pc = new Posts.Collection();
-			var pl = new Posts.Layout();
 
+			// load the filters
+			var f = new Posts.FilterView();
+
+			// show the layout
+			var pl = new Posts.Layout();
 			Feedback.content.show(pl);
+
+			pl.filters.show(f);
 
 			pc.fetch().then(function(){
 				pl.list.show(
@@ -33,7 +39,7 @@ Feedback.module('Posts', function(Posts, App, Backbone, Marionette, $, _){
 
 		regions: {
 			filters: "#filters",
-			list: "#posts-list"
+			list: "#data-list-pane"
 		},
 
 		initialize: function(){
@@ -63,7 +69,7 @@ Feedback.module('Posts', function(Posts, App, Backbone, Marionette, $, _){
 
 	Posts.ListItemView = Marionette.ItemView.extend({
 		template: "posts/list-item.html",
-		className: "row feedback-list-item",
+		className: "row data-list-item",
 		initialize: function(){
 			//console.log("ListItemView: init");
 		},
@@ -71,18 +77,34 @@ Feedback.module('Posts', function(Posts, App, Backbone, Marionette, $, _){
 		onRender: function(){
 			console.log("Rendered");
 			if (this.model.get('Responded') == "1")
-				$(this.el).addClass("feedback-has-response success");
+				$(this.el).addClass("feedback-has-response");
 			else
-				$(this.el).addClass("feedback-needs-response warning");
+				$(this.el).addClass("feedback-needs-response");
 		}
 	});
 
 	Posts.ListView = Marionette.CollectionView.extend({
 		childView: Posts.ListItemView,
-		className: "feedback-list",
+		className: "data-list",
 		initialize: function(){
 			console.log("ListView: init")
-		}		
+		},
+
+		onBeforeRender: function(){
+			$(this.el).hide();
+		},
+
+		onRender: function(){
+			this.$('.expandable-text').expander();
+			$(this.el).fadeIn(1000);
+		}	
+	});
+
+	Posts.FilterView = Marionette.ItemView.extend({
+		template: "posts/filters.html",
+		initialize: function(){
+
+		}
 	});
 
 

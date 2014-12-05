@@ -10,7 +10,13 @@ body {
 	height:100%;
 }
 
+.fixed {
+	position:fixed;
+}
+
 #fixed-left-nav {
+	position:relative;
+	z-index:100;
 	background:$bg-secondary;
 	color:$text-secondary;
 	ul {
@@ -31,13 +37,17 @@ body {
 }
 
 #main {
-	
+	position:relative;
+	z-index:1;
+	$nav-height:76.5px;
+
+	#data-list-pane {height:82.5vh; overflow:scroll;}
 	.top-bar-section li:not(.has-form) a:not(.button),
 	.top-bar .name h1,
 	.top-bar .name,
 	.top-bar {
-		line-height:75px;
-		height:75px;
+		line-height:$nav-height;
+		height:$nav-height;
 	}
 
 	.top-bar a,

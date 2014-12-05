@@ -2,7 +2,14 @@
 * Apply LTU specific colours and branding to elements
  */
 
-#posts-list {
+#data-list-pane {
+	//.read-less, .read-more {display:block;}
+
+	.data-list-item {
+		margin:1em 0;
+		padding:0.5em 0;
+	}
+
 	.feedback-needs-response {
 		background:$bg-warning;
 		color:$text-warning;
