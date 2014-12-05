@@ -1,0 +1,21 @@
+{
+  "name": "training",
+  "version": "0.0.0",
+  "authors": [
+    "Ezekiel Kigbo <e.kigbo@latrobe.edu.au>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "marionette": "~2.2.2",
+    "foundation": "~5.4.7",
+    "fontawesome": "~4.2.0"
+  }
+}
