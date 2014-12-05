@@ -1,3 +1,15 @@
 /*
 * Apply LTU specific colours and branding to elements
  */
+
+#posts-list {
+	.feedback-needs-response {
+		background:$bg-warning;
+		color:$text-warning;
+	}
+
+	.feedback-has-response {
+		background:$bg-success;
+		color:$text-success;
+	}	
+}
