@@ -1,7 +1,10 @@
-<div class="small-2 medium-1 text-center columns">#<%= ID %></div>
+<div class="small-2 medium-1 text-center columns">#<%= id %></div>
 <div class="small-8 medium-9 columns expandable-text">
-	<%= Feedback %>
+	<%= feedback %>
 </div>
 <div class="small-2 text-center columns">
-	<button class="button feedback-response-trigger">Respond</button>
+	<button href="/feedback/<%= id %>" class="button feedback-response-trigger">
+		Respond
+		&nbsp;<span class="fa fa-mail-reply"></span>
+	</button>
 </div>

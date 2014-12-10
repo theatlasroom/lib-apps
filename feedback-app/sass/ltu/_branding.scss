@@ -2,11 +2,29 @@
 * Apply LTU specific colours and branding to elements
  */
 
+@mixin buttons {
+	background-color:$bg-secondary;
+	color:$text-secondary;
+	font-size:12px;
+	padding:1em;
+	font-weight:bold;
+}
+
 #data-list-pane {
 	//.read-less, .read-more {display:block;}
+	.data-list-header {
+		padding-bottom:1em;
+	}
+
+	.data-list-content {
+		height:75vh; 
+		overflow:scroll;
+	}
 
 	.data-list-item {
-		margin:1em 0;
+		margin:0;
+		margin-left:1em;
+		margin-bottom:1em;
 		padding:0.5em 0;
 	}
 
@@ -18,5 +36,66 @@
 	.feedback-has-response {
 		background:$bg-success;
 		color:$text-success;
+	}
+
+	button {
+		@include buttons;
 	}	
+}
+
+#filters {
+	margin-top:1em;
+	.button {
+		@include buttons;
+	}
+
+	.postfix{padding:0;}
+}
+
+#feedback-item {
+	h4 {
+		font-size:smaller;
+		font-weight:bold;
+		text-transform: uppercase;
+	}
+
+	nav {
+		margin-top:1em;
+	}
+
+	.feedback-post-content {
+		max-height:20vh;
+		overflow:scroll;		
+	}
+
+	.feedback-post {
+		margin:1em;
+		margin-bottom:2em;
+		padding:1em;
+		background:$bg-tertiary;
+		.feedback-post-content {
+		}
+		hr {margin:0;margin-bottom:1em;}
+	}
+
+	.feedback-response {
+		textarea {margin-bottom:0;}
+	}
+
+	.switch span {
+		display: inline;
+		position: relative;
+		top: -0.75em;
+		left: 1em;		
+	}
+
+	footer {
+		button {color:$text-primary;}
+		.cancel {background:$bg-warning;}
+		.save {background:$bg-success;}
+	}
+
+	button {
+		@include buttons;
+	}		
 }

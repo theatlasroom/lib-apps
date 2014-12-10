@@ -110,7 +110,7 @@ gulp.task('sass', function(){
         .on("error", notify.onError(function (error) {
             return "Error: " + error.message;
         })))
-        //.pipe(autoprefix('last 2 version'))
+        .pipe(autoprefix('last 2 version'))
         .pipe(gulp.dest('./css'));
 });
 
@@ -129,7 +129,7 @@ gulp.task('sass-dist', function(){
         .on("error", notify.onError(function (error) {
             return "Error: " + error.message;
         })))
-        //.pipe(autoprefix('last 2 version'))
+        .pipe(autoprefix('last 2 version'))
         .pipe(gulp.dest('./css'));
 });
 

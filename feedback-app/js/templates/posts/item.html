@@ -1,0 +1,65 @@
+<nav>
+	<button class="back" href="/">
+		<span class="fa fa-angle-left"></span>
+		&nbsp;Return to list
+	</button>
+</nav>
+<header class="row">
+	<h4 class="small-12 columns">Feedback item#<%= id %></h4>
+</header>
+<section class="feedback-post row">
+	<div class="feedback-post-content small-12">
+		<%= feedback %>
+	</div>
+	<hr>
+	<div class="feedback-post-meta small-12">
+
+	</div>
+</section>
+<section class="feedback-response row">
+	<h4 class="small-12 columns">Response</h4>
+	<div class="feedback-response-content small-8 columns">
+		<textarea rows="8" name="response"><%= response %></textarea>
+		<br>
+		<button class="button">
+			Notes and actions
+		</button>		
+		<button class="button">
+			View / Edit ratings
+		</button>		
+	</div>
+	<div class="feedback-response-actions small-4 columns">
+
+		<% if (!Number(emailed_response) && email.length > 0){ %>
+		<div class="switch round small">
+			<input id="emailedResponse" type="checkbox" name="emailed_response">
+			<label for="emailedResponse"></label>
+			<span>Email this to the user?</span>
+		</div>	
+		<% } else { %>
+			<% if (emailed_response){ %>
+			<p>A response has been sent</p>
+			<% } %>
+		<% } %>
+
+		<% if (permission_to_post){ %>
+		<div class="switch round small">
+			<input id="postedOnline" type="checkbox" name="posted_online">
+			<label for="postedOnline"></label>
+			<span>Post this online?</span>
+		</div>
+		<% } %>		
+	</div>
+</section>
+<footer class="row">
+	<div class="text-right small-12 columns">
+		<button href="/" class="button cancel">
+			<span class="fa fa-close"></span>
+			&nbsp;Cancel
+		</button>
+		<button href="/" class="button save">
+			<span class="fa fa-save"></span>
+			&nbsp;Save changes
+		</button>		
+	</div>
+</footer>
